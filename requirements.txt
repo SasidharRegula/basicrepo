@@ -4,3 +4,6 @@
 
 azure-functions
 openai
+azure-storage-blob
+azure-ai-documentintelligence
+azure-cosmos
