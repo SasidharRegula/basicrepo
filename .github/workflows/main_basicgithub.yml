@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project,defaults to the repository root
+  AZURE_FUNCTIONAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
   PYTHON_VERSION: '3.11' # set this to the python version to use (supports 3.6, 3.7, 3.8)
 
 jobs:
@@ -31,13 +31,11 @@ jobs:
 
       - name: Create and start virtual environment
         run: |
-          python3 -m venv venv
+          python -m venv venv
           source venv/bin/activate
 
       - name: Install dependencies
-        run: |
-          source venv/bin/activate
-          pip install -r requirements.txt
+        run: pip install -r requirements.txt
 
       # Optional: Add step to run tests here
 
@@ -74,10 +72,6 @@ jobs:
           app-name: 'basicgithub'
           slot-name: 'Production'
           package: ${{ env.AZURE_FUNCTIONAPP_PACKAGE_PATH }}
-
-          publish-profile: ${{ secrets.AZURE_FUNCTIONAPP_PUBLISH_PROFILE }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_73C13DA5474343A8969B74B47B103AC8 }}
           sku: 'flexconsumption'
         
-
-
-
