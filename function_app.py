@@ -1,12 +1,12 @@
 import azure.functions as func
 import logging
-# from openai import AzureOpenAI
+
 app = func.FunctionApp(http_auth_level=func.AuthLevel.FUNCTION)
 
 @app.route(route="functionjson")
 def functionjson(req: func.HttpRequest) -> func.HttpResponse:
     logging.info('Python HTTP trigger function processed a request.')
-    from openai import AzureOpenAI
+    
     name = req.params.get('name')
     if not name:
         try:
